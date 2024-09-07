@@ -18,17 +18,20 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             overflow: hidden;
             border: 2px solid #0056b3;
+            position: relative;
         }
         .header {
             display: flex;
             align-items: center;
             background-color: #0056b3;
             padding: 10px;
+            animation: slide-in-top 1s ease-out;
         }
         .logo {
             width: 150px;
             height: auto;
             margin-right: 20px;
+            animation: float 3s infinite ease-in-out;
         }
         .title-location {
             flex-grow: 1;
@@ -67,14 +70,47 @@
             font-weight: bold;
             border: none;
             cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
-        /* Animation */
-        .slide {
-            animation: slide 2s ease-in-out forwards;
+        .apply-button:hover {
+            background-color: #003f8a;
+            transform: scale(1.05);
         }
-        @keyframes slide {
+        /* Animations */
+        @keyframes slide-in-top {
+            0% {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        @keyframes slide-in-left {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        @keyframes fade-in {
             0% { opacity: 0; }
             100% { opacity: 1; }
+        }
+        .slide {
+            animation: slide-in-left 0.5s ease-out, fade-in 0.5s ease;
         }
     </style>
 </head>
@@ -119,7 +155,7 @@
                 <li>Various rosters available.</li>
             </ul>
         </div>
-        <a href="https://www.seek.com.au/job/78424467?ref=search-standalone&type=standout&origin=jobTitle#sol=d7a089c1b7beadc4db860c527ac1235f4b9b2959" class="apply-button" target="_blank">Apply Now</a>
+        <a href="https://www.seek.com.au/job/78424467?ref=search-standalone&type=standout&origin=jobTitle#sol=d7a089c1b7beadc4db860c527ac1235f4b9b2959" class="apply-button" target="_blank">Apply Now on Seek</a>
     </div>
 
     <script>
